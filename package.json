@@ -1,0 +1,31 @@
+{
+  "name": "react-native-chinacitypicker",
+  "version": "0.1.0",
+  "description": "中国省&市&县选择器(react-native 组件)",
+  "main": "index.js",
+  "directories": {
+    "example": "example"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zoomyu/react-native-ChinaCityPicker.git"
+  },
+  "keywords": [
+    "react-native",
+    "china",
+    "province",
+    "city",
+    "county",
+    "component",
+    "picker"
+  ],
+  "author": "zoomyu",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/zoomyu/react-native-ChinaCityPicker/issues"
+  },
+  "homepage": "https://github.com/zoomyu/react-native-ChinaCityPicker#readme"
+}
