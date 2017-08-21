@@ -1,6 +1,6 @@
 {
   "name": "react-native-chinacitypicker",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "中国省&市&县选择器(react-native 组件)",
   "main": "index.js",
   "directories": {

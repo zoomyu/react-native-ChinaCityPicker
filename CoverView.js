@@ -4,10 +4,9 @@ import { StyleSheet, AppRegistry, DeviceEventEmitter, View } from 'react-native'
 
 import Colors from './Colors';
 
-
 export default class CoverView extends Component {
   static add(element) {
-    DeviceEventEmitter.emit('addCover', element);
+    DeviceEventEmitter.emit('addCover', { element });
   }
 
   static remove() {
@@ -17,7 +16,7 @@ export default class CoverView extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      element: null
+      elements: []
     };
   }
 
@@ -32,21 +31,25 @@ export default class CoverView extends Component {
   }
 
   add(e) {
-    this.setState({ element: e });
+    const { elements } = this.state;
+    elements.push(e);
+    this.setState({ elements });
   }
 
   remove() {
-    this.setState({ element: null });
+    this.setState({ elements: [] });
   }
 
   render() {
-    const { element } = this.state;
+    const { elements } = this.state;
     return (
       <View style={styles.container}>
         {this.props.children}
-        <View style={styles.cover} pointerEvents="box-none">
-          {element}
-        </View>
+        {elements.map((item, i) => (
+          <View key={i} style={styles.cover} pointerEvents="box-none">
+            {item.element}
+          </View>
+        ))}
       </View>
     );
   }
