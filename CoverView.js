@@ -73,13 +73,17 @@ if (!AppRegistry.registerComponentOld) {
   AppRegistry.registerComponentOld = AppRegistry.registerComponent;
 }
 
-AppRegistry.registerComponent = (appKey, getComponentFunc) => {
-  const SourceComponent = getComponentFunc();
-  return AppRegistry.registerComponentOld(appKey, () => React.createClass({
-    render: () => (
-      <CoverView>
-        <SourceComponent {...this.props} />
-      </CoverView>
-    )
-  }));
+AppRegistry.registerComponent = (appKey, componentProvider) => {
+  class RootElement extends Component {
+    render() {
+      const SourceComponent = componentProvider();
+      return (
+        <CoverView>
+          <SourceComponent {...this.props} />
+        </CoverView>
+      );
+    }
+  }
+
+  return AppRegistry.registerComponentOld(appKey, () => RootElement);
 };
